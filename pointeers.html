@@ -1,0 +1,56 @@
+<head>
+  <title>pointeers</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="profile">
+	<h1>{{profile.name}}</h1>
+	<p>Gender: {{services.facebook.gender}}</p>
+</template>
+
+<template name="users">
+	<h1> Users Page </h1>
+	{{#each user}}
+		<a href="{{pathFor 'users'}}/{{_id}}">{{profile.name}}</a>
+	{{/each}}
+</template> 
+
+<!-- home template -->
+<template name="home">
+	{{> loginButtons}}
+	<h1>Pointeers</h1>
+	<p>A community of fun loving volunteers.</p>
+	<a href="{{pathFor 'missions'}}">View Missions</a>
+	<a href="{{pathFor 'users'}}">view Users</a>
+</template>
+
+<!-- missions template -->
+<template name="missions">
+	<h1>Missions</h1>
+	{{> newMission}}
+  	{{> missionlist}}
+</template>
+
+<!-- for templetes its for stuff that we dont know will show up -->
+<template name="newMission">
+		<h3>post a new mission</h3>
+	<input class="new-mission-title" placeholder="Title">
+	
+	<textarea class="new-mission-description" 
+	placeholder="Description">
+    </textarea>
+	
+	<button class="new-mission-submit">Post New Mission 
+	</button>
+
+</template>
+
+<template name="missionlist">
+  {{#each mission}}
+  	<h3> {{title}} </h3>
+  	<p> {{description}} </p>
+  {{/each}}
+</template>
